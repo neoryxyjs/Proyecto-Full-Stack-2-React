@@ -1,0 +1,267 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+    color: #1e293b;
+    background-color: #ffffff;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply px-4 py-2 rounded-lg font-medium transition-all duration-300 border-0;
+  }
+
+  .btn-primary {
+    @apply bg-gradient-to-r from-primary-600 to-primary-700 text-white hover:from-primary-700 hover:to-primary-800 hover:-translate-y-0.5 hover:shadow-lg;
+  }
+
+  .btn-outline-primary {
+    @apply border-2 border-primary-600 text-primary-600 hover:bg-primary-600 hover:text-white hover:-translate-y-0.5;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary-100 text-secondary-700 hover:bg-secondary-200;
+  }
+
+  .card {
+    @apply bg-white rounded-xl shadow-sm border-0 overflow-hidden transition-all duration-300;
+  }
+
+  .card:hover {
+    @apply -translate-y-1 shadow-xl;
+  }
+
+  .input-group {
+    @apply relative flex items-center;
+  }
+
+  .form-control {
+    @apply w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors;
+  }
+
+  .input-group-text {
+    @apply px-3 py-2 bg-gray-50 border border-r-0 border-gray-300 rounded-l-lg;
+  }
+
+  .form-control:focus + .input-group-text {
+    @apply border-primary-500;
+  }
+
+  .navbar {
+    @apply transition-all duration-300 shadow-sm;
+  }
+
+  .nav-link {
+    @apply font-medium transition-colors duration-300 relative;
+  }
+
+  .nav-link:hover {
+    @apply text-primary-600;
+  }
+
+  .nav-link.active {
+    @apply text-primary-600;
+  }
+
+  .nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 2px;
+    background-color: #2563eb;
+  }
+
+  .rating {
+    @apply text-sm;
+  }
+
+  .rating i {
+    @apply text-yellow-400;
+  }
+
+  .social-links a {
+    @apply inline-block w-10 h-10 bg-white bg-opacity-10 rounded-full text-center leading-10 transition-all duration-300;
+  }
+
+  .social-links a:hover {
+    @apply bg-primary-600 -translate-y-1;
+  }
+
+  .toast-container {
+    @apply fixed bottom-5 right-5 z-50;
+  }
+
+  .toast {
+    @apply bg-white rounded-lg shadow-xl border-0;
+  }
+
+  .toast-header {
+    @apply bg-gradient-to-r from-primary-600 to-primary-700 text-white border-0 rounded-t-lg;
+  }
+
+  .toast-body {
+    @apply bg-white rounded-b-lg;
+  }
+
+  .scroll-to-top {
+    @apply fixed bottom-8 right-8 w-12 h-12 bg-gradient-to-r from-primary-600 to-primary-700 text-white border-0 rounded-full text-lg cursor-pointer opacity-0 invisible transition-all duration-300 z-40;
+  }
+
+  .scroll-to-top.show {
+    @apply opacity-100 visible;
+  }
+
+  .scroll-to-top:hover {
+    @apply -translate-y-1 shadow-lg;
+  }
+
+  .product-card {
+    @apply card;
+  }
+
+  .product-image {
+    @apply relative overflow-hidden;
+  }
+
+  .product-image img {
+    @apply transition-transform duration-300 h-72 object-cover;
+  }
+
+  .product-card:hover .product-image img {
+    @apply scale-105;
+  }
+
+  .product-overlay {
+    @apply absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center opacity-0 transition-opacity duration-300;
+  }
+
+  .product-card:hover .product-overlay {
+    @apply opacity-100;
+  }
+
+  .hero-section {
+    @apply relative overflow-hidden;
+  }
+
+  .carousel-bg {
+    @apply min-h-screen flex items-center relative;
+  }
+
+  .carousel-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 1;
+  }
+
+  .carousel-bg .container {
+    @apply relative z-10;
+  }
+
+  .feature-card {
+    @apply bg-white rounded-xl p-8 text-center shadow-sm transition-all duration-300 border border-gray-100;
+  }
+
+  .feature-card:hover {
+    @apply -translate-y-1 shadow-xl;
+  }
+
+  .feature-icon {
+    @apply w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 text-2xl;
+  }
+
+  .loading {
+    @apply inline-block w-5 h-5 border-2 border-white border-opacity-30 rounded-full border-t-white animate-spin;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary-600 to-primary-700 bg-clip-text text-transparent;
+  }
+
+  .bg-gradient-primary {
+    @apply bg-gradient-to-r from-primary-600 to-primary-700;
+  }
+
+  .bg-gradient-secondary {
+    @apply bg-gradient-to-r from-pink-400 to-red-500;
+  }
+
+  .bg-gradient-info {
+    @apply bg-gradient-to-r from-blue-400 to-cyan-400;
+  }
+
+  .bg-gradient-success {
+    @apply bg-gradient-to-r from-green-400 to-teal-400;
+  }
+
+  .fade-in-up {
+    animation: fadeInUp 0.6s ease-out;
+  }
+
+  .hover-lift {
+    @apply transition-transform duration-300;
+  }
+
+  .hover-lift:hover {
+    @apply -translate-y-1;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-section .display-4 {
+    font-size: 2.5rem;
+  }
+  
+  .hero-section .lead {
+    font-size: 1.1rem;
+  }
+  
+  .product-image img {
+    height: 200px;
+  }
+  
+  .card-body {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-section .display-4 {
+    font-size: 2rem;
+  }
+  
+  .hero-section .lead {
+    font-size: 1rem;
+  }
+  
+  .btn-lg {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+  }
+}
