@@ -168,8 +168,8 @@ Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más det
 
 ## 👥 Equipo
 
-- **Desarrollador Frontend**: [Tu Nombre]
-- **Diseño UX/UI**: [Nombre del Diseñador]
+- **Desarrollador Frontend**: [Benjamin Errazuriz]
+- **Diseño UX/UI**: [Benjamin Errazuriz]
 
 ## 📞 Contacto
 
