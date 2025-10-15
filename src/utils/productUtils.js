@@ -1,21 +1,27 @@
-// Utilidades para manejo de productos
-
 export const imageSources = {
   1: [
-    '/src/assets/images/swimming.jpg',
+    '/swimming.jpg', // ← Cambiado de '/src/assets/images/swimming.jpg'
     'https://via.placeholder.com/300x300/667eea/ffffff?text=Swimming'
   ],
   2: [
-    '/src/assets/images/hybrid-theory.jpg',
+    '/hybrid-theory.jpg', // ← Cambiado de '/src/assets/images/hybrid-theory.jpg'
     'https://via.placeholder.com/300x300/f093fb/ffffff?text=Hybrid+Theory'
   ],
   3: [
-    '/src/assets/images/circles.jpg',
+    '/circles.jpg', // ← Cambiado de '/src/assets/images/circles.jpg'
     'https://via.placeholder.com/300x300/4facfe/ffffff?text=Circles'
   ],
   4: [
-    '/src/assets/images/meteora.jpg',
+    '/meteora.jpg', // ← Cambiado de '/src/assets/images/meteora.jpg'
     'https://via.placeholder.com/300x300/43e97b/ffffff?text=Meteora'
+  ],
+  5: [
+    '/the-divine-feminine.jpg', // ← Agregado
+    'https://via.placeholder.com/300x300/f6d365/ffffff?text=Divine+Feminine'
+  ],
+  6: [
+    '/go_od_am.jpg', // ← Agregado
+    'https://via.placeholder.com/300x300/5ee7df/ffffff?text=GO%3AOD+AM'
   ]
 };
 
@@ -23,7 +29,9 @@ export const fallbackGradients = {
   1: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
   2: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
   3: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
-  4: 'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)'
+  4: 'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)',
+  5: 'linear-gradient(135deg, #f6d365 0%, #fda085 100%)',
+  6: 'linear-gradient(135deg, #5ee7df 0%, #b490ca 100%)'
 };
 
 export const getProductById = (id) => {
@@ -34,7 +42,7 @@ export const getProductById = (id) => {
       artist: 'Mac Miller',
       genre: 'Hip Hop',
       price: 39.99,
-      image: imageSources[1][0],
+      image: imageSources[1][0], // ← Ahora apunta a '/swimming.jpg'
       fallbackGradient: fallbackGradients[1],
       year: 2018,
       description: 'El octavo álbum de estudio de Mac Miller, lanzado póstumamente en 2018.',
@@ -68,7 +76,7 @@ export const getProductById = (id) => {
       artist: 'Linkin Park',
       genre: 'Nu Metal',
       price: 44.99,
-      image: imageSources[2][0],
+      image: imageSources[2][0], // ← Ahora apunta a '/hybrid-theory.jpg'
       fallbackGradient: fallbackGradients[2],
       year: 2000,
       description: 'El álbum debut de Linkin Park que los catapultó a la fama mundial.',
@@ -93,7 +101,7 @@ export const getProductById = (id) => {
       artist: 'Mac Miller',
       genre: 'Hip Hop',
       price: 42.99,
-      image: imageSources[3][0],
+      image: imageSources[3][0], // ← Ahora apunta a '/circles.jpg'
       fallbackGradient: fallbackGradients[3],
       year: 2020,
       description: 'El último álbum de Mac Miller, completado póstumamente y lanzado en 2020.',
@@ -118,7 +126,7 @@ export const getProductById = (id) => {
       artist: 'Linkin Park',
       genre: 'Nu Metal',
       price: 46.99,
-      image: imageSources[4][0],
+      image: imageSources[4][0], // ← Ahora apunta a '/meteora.jpg'
       fallbackGradient: fallbackGradients[4],
       year: 2003,
       description: 'El segundo álbum de estudio de Linkin Park, continuando su éxito comercial.',
@@ -136,6 +144,52 @@ export const getProductById = (id) => {
           { title: 'Figure.09', duration: '3:17' }
         ]
       }
+    },
+    5: {
+      id: 5,
+      name: 'The Divine Feminine',
+      artist: 'Mac Miller',
+      genre: 'Hip Hop',
+      price: 41.99,
+      image: imageSources[5][0], // ← Agregado
+      fallbackGradient: fallbackGradients[5],
+      year: 2016,
+      description: 'Un álbum conceptual que explora el amor y las relaciones.',
+      tracklist: {
+        'Lado A': [
+          { title: 'Congratulations', duration: '4:16' },
+          { title: 'Dang!', duration: '5:05' },
+          { title: 'Stay', duration: '5:26' }
+        ],
+        'Lado B': [
+          { title: 'Skin', duration: '4:18' },
+          { title: 'Cinderella', duration: '8:00' },
+          { title: 'Planet God Damn', duration: '3:12' }
+        ]
+      }
+    },
+    6: {
+      id: 6,
+      name: 'GO:OD AM',
+      artist: 'Mac Miller',
+      genre: 'Hip Hop',
+      price: 43.99,
+      image: imageSources[6][0], // ← Agregado
+      fallbackGradient: fallbackGradients[6],
+      year: 2015,
+      description: 'El tercer álbum de estudio de Mac Miller, marcando un nuevo capítulo en su carrera.',
+      tracklist: {
+        'Lado A': [
+          { title: 'Doors', duration: '1:18' },
+          { title: 'Brand Name', duration: '5:02' },
+          { title: 'Rush Hour', duration: '3:21' }
+        ],
+        'Lado B': [
+          { title: '100 Grandkids', duration: '4:38' },
+          { title: 'Time Flies', duration: '2:53' },
+          { title: 'Weekend', duration: '3:28' }
+        ]
+      }
     }
   };
   
@@ -143,12 +197,7 @@ export const getProductById = (id) => {
 };
 
 export const getAllProducts = () => {
-  return Object.values({
-    1: getProductById(1),
-    2: getProductById(2),
-    3: getProductById(3),
-    4: getProductById(4)
-  });
+  return [1, 2, 3, 4, 5, 6].map(id => getProductById(id));
 };
 
 export const getProductsByGenre = (genre) => {
